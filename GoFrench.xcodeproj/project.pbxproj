@@ -15,6 +15,7 @@
 		99056FE02AF9618000A9F32B /* GoFrench.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99056FDE2AF9618000A9F32B /* GoFrench.xcdatamodeld */; };
 		99056FE22AF9618200A9F32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99056FE12AF9618200A9F32B /* Assets.xcassets */; };
 		99056FE52AF9618200A9F32B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99056FE32AF9618200A9F32B /* LaunchScreen.storyboard */; };
+		EE9AC9402B029A8800D342D6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		99056FE12AF9618200A9F32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99056FE42AF9618200A9F32B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99056FE62AF9618200A9F32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				99056FD52AF9618000A9F32B /* AppDelegate.swift */,
 				99056FD72AF9618000A9F32B /* SceneDelegate.swift */,
 				99056FD92AF9618000A9F32B /* ViewController.swift */,
+				EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */,
 				99056FDB2AF9618000A9F32B /* Main.storyboard */,
 				99056FE12AF9618200A9F32B /* Assets.xcassets */,
 				99056FE32AF9618200A9F32B /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */,
 				99056FE02AF9618000A9F32B /* GoFrench.xcdatamodeld in Sources */,
 				99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */,
+				EE9AC9402B029A8800D342D6 /* SecondViewController.swift in Sources */,
 				99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
