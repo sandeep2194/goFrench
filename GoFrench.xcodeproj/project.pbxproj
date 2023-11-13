@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EA92AAC2B02A3A70025F101 /* ConjugationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA92AAB2B02A3A70025F101 /* ConjugationViewController.swift */; };
 		99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD52AF9618000A9F32B /* AppDelegate.swift */; };
 		99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD72AF9618000A9F32B /* SceneDelegate.swift */; };
 		99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD92AF9618000A9F32B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EA92AAB2B02A3A70025F101 /* ConjugationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjugationViewController.swift; sourceTree = "<group>"; };
 		99056FD22AF9618000A9F32B /* GoFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99056FD52AF9618000A9F32B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99056FD72AF9618000A9F32B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				99056FE12AF9618200A9F32B /* Assets.xcassets */,
 				99056FE32AF9618200A9F32B /* LaunchScreen.storyboard */,
 				99056FE62AF9618200A9F32B /* Info.plist */,
+				8EA92AAB2B02A3A70025F101 /* ConjugationViewController.swift */,
 			);
 			path = GoFrench;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */,
 				99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */,
+				8EA92AAC2B02A3A70025F101 /* ConjugationViewController.swift in Sources */,
 				99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
