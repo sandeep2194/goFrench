@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var conjugationService = ConjugationService()
     var conjugations: [ConjugationObject] = []
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
