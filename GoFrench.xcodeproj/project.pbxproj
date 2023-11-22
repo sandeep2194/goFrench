@@ -17,6 +17,8 @@
 		99056FE52AF9618200A9F32B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99056FE32AF9618200A9F32B /* LaunchScreen.storyboard */; };
 		EE7CB5C42B0EB8340049F232 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */; };
 		EE9AC9402B029A8800D342D6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */; };
+		EEDEB6E22B0EC8B300BADF67 /* ConjugationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDEB6E02B0EC8B300BADF67 /* ConjugationTableViewCell.swift */; };
+		EEDEB6E32B0EC8B300BADF67 /* ConjugationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEDEB6E12B0EC8B300BADF67 /* ConjugationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		99056FE62AF9618200A9F32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EEDEB6E02B0EC8B300BADF67 /* ConjugationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjugationTableViewCell.swift; sourceTree = "<group>"; };
+		EEDEB6E12B0EC8B300BADF67 /* ConjugationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConjugationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				99056FDE2AF9618000A9F32B /* GoFrench.xcdatamodeld */,
 				8EEB0E032B029424006CECD5 /* readme.md */,
 				EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */,
+				EEDEB6E02B0EC8B300BADF67 /* ConjugationTableViewCell.swift */,
+				EEDEB6E12B0EC8B300BADF67 /* ConjugationTableViewCell.xib */,
 			);
 			path = GoFrench;
 			sourceTree = "<group>";
@@ -138,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99056FE52AF9618200A9F32B /* LaunchScreen.storyboard in Resources */,
+				EEDEB6E32B0EC8B300BADF67 /* ConjugationTableViewCell.xib in Resources */,
 				99056FE22AF9618200A9F32B /* Assets.xcassets in Resources */,
 				8EEB0E042B029424006CECD5 /* readme.md in Resources */,
 				99056FDD2AF9618000A9F32B /* Main.storyboard in Resources */,
@@ -155,6 +162,7 @@
 				99056FE02AF9618000A9F32B /* GoFrench.xcdatamodeld in Sources */,
 				99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */,
 				EE9AC9402B029A8800D342D6 /* SecondViewController.swift in Sources */,
+				EEDEB6E22B0EC8B300BADF67 /* ConjugationTableViewCell.swift in Sources */,
 				EE7CB5C42B0EB8340049F232 /* ThirdViewController.swift in Sources */,
 				99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */,
 			);
