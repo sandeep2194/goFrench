@@ -2,36 +2,36 @@
 //  ConjugationService.swift
 //  GoFrench
 //
-//  Created by sandeep singh on 2023-11-22.
-//
-
-import Foundation
-
-
-//
-//  ConjugationService.swift
-//  GoFrench
-//
 //  Created by Sandeep Singh on 2023-11-22.
 //
 
 import Foundation
 
-// Define a structure to represent a conjugation object
+// Structure to represent a specific conjugation
 struct ConjugationObject {
     let type: String
     let tense: String
-    let word: String
+    let conjugatedForm: String
     let subject: String
 }
 
-// Define a service to parse the API response and return conjugation objects
+// Structure to represent all data including word information and conjugations
+struct ConjugationData {
+    let word: String
+    let fullDescription: String
+    let verbGroup: String
+    let verbType: String
+    let conjugateWith: String
+    let conjugateRule: String
+    let conjugations: [ConjugationObject]
+}
+
 class ConjugationService {
     
     let conjugationApiUrl = URL(string: "https://mocki.io/v1/2e7196ac-1909-4883-bb17-ed996ea1c487")!
     
-    // Function to parse the given JSON and return an array of ConjugationObject
-    func fetchConjugationData(completion: @escaping ([ConjugationObject]?) -> Void) {
+    // Function to fetch conjugation data from the API
+    func fetchConjugationData(completion: @escaping (ConjugationData?) -> Void) {
         URLSession.shared.dataTask(with: conjugationApiUrl) { data, response, error in
             guard let data = data, error == nil else {
                 print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
@@ -41,8 +41,8 @@ class ConjugationService {
             
             do {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    let conjugations = self.parseConjugationResponse(from: jsonResponse)
-                    completion(conjugations)
+                    let conjugationData = self.parseConjugationResponse(from: jsonResponse)
+                    completion(conjugationData)
                 }
             } catch {
                 print("Error parsing JSON: \(error.localizedDescription)")
@@ -51,27 +51,47 @@ class ConjugationService {
         }.resume()
     }
     
-    func parseConjugationResponse(from jsonResponse: [String: Any]) -> [ConjugationObject] {
-        var conjugations = [ConjugationObject]()
-        
+    // Function to parse the given JSON and return ConjugationData
+    func parseConjugationResponse(from jsonResponse: [String: Any]) -> ConjugationData? {
         guard let data = jsonResponse["data"] as? [String: Any],
-              let word = data["word"] as? String else {
-            return []
+              let word = data["word"] as? String,
+              let fullDescription = data["fullDescription"] as? String,
+              let verbGroup = data["wordVerbGroup"] as? String,
+              let verbType = data["wordVerbType"] as? String,
+              let conjugateWith = data["wordConjugateWithWhichVerb"] as? String,
+              let conjugateRule = data["wordConjugateRule"] as? String else {
+            return nil
         }
-        
+
+        var conjugations = [ConjugationObject]()
+
+        // Handle "infinitive" and "participe"
         if let infinitive = data["infinitive"] as? [String: String] {
-                for (tense, verbForm) in infinitive {
-                    conjugations.append(ConjugationObject(type: "Infinitive", tense: tense, word: verbForm, subject: ""))
-                }
+            for (tense, verbForm) in infinitive {
+                let conjugation = ConjugationObject(
+                    type: "Infinitive",
+                    tense: tense,
+                    conjugatedForm: verbForm,
+                    subject: ""
+                )
+                conjugations.append(conjugation)
+            }
         }
         if let participe = data["participe"] as? [String: String] {
-                for (tense, verbForm) in participe {
-                    conjugations.append(ConjugationObject(type: "Participe", tense: tense, word: verbForm, subject: ""))
-                }
+            for (tense, verbForm) in participe {
+                let conjugation = ConjugationObject(
+                    type: "Participe",
+                    tense: tense,
+                    conjugatedForm: verbForm,
+                    subject: ""
+                )
+                conjugations.append(conjugation)
+            }
         }
-        
-        let conjugationTypes = ["indicatif", "subjonctif", "conditionnel", "imperatif"]
 
+        // Handle other conjugation types
+        let conjugationTypes = ["indicatif", "subjonctif", "conditionnel", "imperatif"]
+        
         for type in conjugationTypes {
             if let tenseDict = data[type] as? [String: Any] {
                 for (tenseKey, tenseValue) in tenseDict {
@@ -81,7 +101,7 @@ class ConjugationService {
                             let conjugation = ConjugationObject(
                                 type: type.capitalized,
                                 tense: tenseKey,
-                                word: conjugatedForm,
+                                conjugatedForm: conjugatedForm,
                                 subject: subject
                             )
                             conjugations.append(conjugation)
@@ -91,15 +111,20 @@ class ConjugationService {
             }
         }
 
-        return conjugations
+        return ConjugationData(
+            word: word,
+            fullDescription: fullDescription,
+            verbGroup: verbGroup,
+            verbType: verbType,
+            conjugateWith: conjugateWith,
+            conjugateRule: conjugateRule,
+            conjugations: conjugations
+        )
     }
 
-    // Extracts the subject from the given key
     private func extractSubject(from key: String) -> String {
-        // Split the key by uppercase letters
         let subjects = key.split(whereSeparator: { $0.isUppercase }).map(String.init)
-
-        // Return the last part which should be the subject
         return subjects.last ?? key
     }
 }
+
