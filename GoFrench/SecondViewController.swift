@@ -7,23 +7,28 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var txtWord: UITextField!
+    
+    @IBOutlet weak var txtDescription: UITextField!
+    
+    @IBOutlet weak var txtWordVerbType: UITextField!
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //todo
     }
-    */
+    @IBAction func btnConjugate(_ sender: UIButton) {
+        //todo
+    }
 
 }

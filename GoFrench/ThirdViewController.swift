@@ -9,13 +9,28 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
+    @IBOutlet weak var btnPopType: UIButton!
+    
+    @IBOutlet weak var btnPopTense: UIButton!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func btnPopTypeValueChanged(_ sender: Any) {
+        //todo
+    }
+    
+    @IBAction func btnPopTenseValueChanged(_ sender: Any) {
+        //todo
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
