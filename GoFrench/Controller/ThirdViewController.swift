@@ -17,6 +17,10 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     
     var conjugations = [Conjugation]()
+    var filteredConjugations = [Conjugation]()
+    var currentConjugationType: String?
+    var currentConjugationTense: String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,22 +29,24 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func initialize(){
+        filteredConjugations = conjugations  // Show all initially
+        
         tableView.delegate = self;
         tableView.dataSource = self;
         
         tableView.register(UINib(nibName: "ConjugationTableViewCell", bundle: nil), forCellReuseIdentifier: "conjugationTableViewCell")
 
-        btnPopTense.isEnabled = false
         setPopUpButtonType()
+        updatePopUpButtonTenseMenu(conjugationType: ConjugationType.indicatif)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return conjugations.count;
+        return filteredConjugations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conjugationTableViewCell", for: indexPath) as! ConjugationTableViewCell;
         
-        cell.setCellContent(conjugation: conjugations[indexPath.row])
+        cell.setCellContent(conjugation: filteredConjugations[indexPath.row])
         
         return cell;
         
@@ -52,8 +58,6 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func setPopUpButtonType(){
         let optionClosure = { [weak self] (action: UIAction) in
                     guard let self = self else { return }
-                    print(action.title)
-
                     // Update the menu for the second button based on the selection of the first button
                     self.updatePopUpButtonTenseMenu(conjugationType: action.title)
                 }
@@ -75,7 +79,9 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if(conjugationType==nil){
             return;
         }
-        // Clear the existing menu for the second button
+        
+        currentConjugationType = conjugationType
+
         // Create a new menu based on the selected conjugation type
         switch conjugationType {
         case ConjugationType.indicatif:
@@ -85,39 +91,52 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 ConjugationTense.plusQueParfait, ConjugationTense.futurAnterieur
             ])
             btnPopTense.isEnabled = true
+            currentConjugationTense = ConjugationTense.present;
+            filterConjugations()
 
         case ConjugationType.participe:
             btnPopTense.menu = createTenseMenu(tenses: [
                 ConjugationTense.present, ConjugationTense.passe
             ])
             btnPopTense.isEnabled = true
+            currentConjugationTense = ConjugationTense.present;
+            filterConjugations()
 
         case ConjugationType.infinitive:
             btnPopTense.menu = createTenseMenu(tenses: [
                 ConjugationTense.present, ConjugationTense.passe
             ])
             btnPopTense.isEnabled = true
+            currentConjugationTense = ConjugationTense.present;
+            filterConjugations()
 
         case ConjugationType.imperatif:
             btnPopTense.menu = createTenseMenu(tenses: [
                 ConjugationTense.present, ConjugationTense.passe
             ])
             btnPopTense.isEnabled = true
+            currentConjugationTense = ConjugationTense.present;
+            filterConjugations()
 
         case ConjugationType.subjonctif:
             btnPopTense.menu = createTenseMenu(tenses: [
                 ConjugationTense.present, ConjugationTense.passe, ConjugationTense.imparfait, ConjugationTense.plusQueParfait
             ])
             btnPopTense.isEnabled = true
+            currentConjugationTense = ConjugationTense.present;
+            filterConjugations()
 
         case ConjugationType.conditionnel:
             btnPopTense.menu = createTenseMenu(tenses: [
                 ConjugationTense.present, ConjugationTense.passe1reForme, ConjugationTense.passe2eForme
             ])
             btnPopTense.isEnabled = true
+            currentConjugationTense = ConjugationTense.present;
+            filterConjugations()
 
         default:
             btnPopTense.isEnabled = false
+            currentConjugationTense = ConjugationTense.present;
             break
         }
     }
@@ -132,16 +151,24 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tenseOptionClosure(action: UIAction) {
-        print(action.title)
+        currentConjugationTense = action.title
+        filterConjugations()
     }
 
-    
-    @IBAction func btnPopTypeValueChanged(_ sender: Any) {
-        //todo
+    func filterConjugations() {
+        if let type = currentConjugationType, let tense = currentConjugationTense {
+            filteredConjugations = conjugations.filter { conjugation in
+                return conjugation.type.lowercased() == type.lowercased() && conjugation.tense.lowercased() == tense.lowercased()
+            }
+        tableView.reloadData()
+        } else {
+            // show toast
+        }
     }
-    
+   
     @IBAction func btnPopTenseValueChanged(_ sender: Any) {
-        //todo
+        filterConjugations()
     }
+    
     
 }
