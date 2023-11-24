@@ -8,7 +8,10 @@
 import UIKit
 
 class ConjugationTableViewCell: UITableViewCell {
+    private var conjugation: Conjugation?;
 
+    @IBOutlet weak var lblConjugatedForm: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +21,14 @@ class ConjugationTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    public func setCellContent(conjugation: Conjugation){
+        self.conjugation = conjugation;
+        
+        lblConjugatedForm.text = conjugation.conjugatedForm;
+        
+        
     }
     
 }

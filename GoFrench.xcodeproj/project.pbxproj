@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EB1B9792B112E4F00D45768 /* enumSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9782B112E4F00D45768 /* enumSegue.swift */; };
+		8EB1B97F2B11310700D45768 /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B97E2B11310700D45768 /* Conjugation.swift */; };
+		8EB1B9812B11315D00D45768 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9802B11315D00D45768 /* Data.swift */; };
+		8EB1B9842B114F1F00D45768 /* enumConjugationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9822B114F1F00D45768 /* enumConjugationType.swift */; };
+		8EB1B9852B114F1F00D45768 /* enumConjugationTense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9832B114F1F00D45768 /* enumConjugationTense.swift */; };
 		99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD52AF9618000A9F32B /* AppDelegate.swift */; };
 		99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD72AF9618000A9F32B /* SceneDelegate.swift */; };
 		99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD92AF9618000A9F32B /* ViewController.swift */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EB1B9782B112E4F00D45768 /* enumSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumSegue.swift; sourceTree = "<group>"; };
+		8EB1B97E2B11310700D45768 /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
+		8EB1B9802B11315D00D45768 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8EB1B9822B114F1F00D45768 /* enumConjugationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumConjugationType.swift; sourceTree = "<group>"; };
+		8EB1B9832B114F1F00D45768 /* enumConjugationTense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumConjugationTense.swift; sourceTree = "<group>"; };
 		99056FD22AF9618000A9F32B /* GoFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99056FD52AF9618000A9F32B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99056FD72AF9618000A9F32B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +57,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8EB1B97A2B11307900D45768 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EEDEB6E02B0EC8B300BADF67 /* ConjugationTableViewCell.swift */,
+				EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */,
+				EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */,
+				99056FD92AF9618000A9F32B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8EB1B97B2B1130A200D45768 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEDEB6E12B0EC8B300BADF67 /* ConjugationTableViewCell.xib */,
+				99056FDB2AF9618000A9F32B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8EB1B97C2B1130CD00D45768 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8EB1B9832B114F1F00D45768 /* enumConjugationTense.swift */,
+				8EB1B9822B114F1F00D45768 /* enumConjugationType.swift */,
+				8EB1B9782B112E4F00D45768 /* enumSegue.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8EB1B97D2B1130DC00D45768 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8EB1B97E2B11310700D45768 /* Conjugation.swift */,
+				8EB1B9802B11315D00D45768 /* Data.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8EE56DAD2B0EB2A40076C5DB /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,18 +123,16 @@
 		99056FD42AF9618000A9F32B /* GoFrench */ = {
 			isa = PBXGroup;
 			children = (
+				8EB1B97D2B1130DC00D45768 /* Model */,
+				8EB1B97C2B1130CD00D45768 /* Source */,
+				8EB1B97B2B1130A200D45768 /* View */,
+				8EB1B97A2B11307900D45768 /* Controller */,
 				8EE56DAD2B0EB2A40076C5DB /* Service */,
 				99056FD52AF9618000A9F32B /* AppDelegate.swift */,
 				99056FD72AF9618000A9F32B /* SceneDelegate.swift */,
-				99056FD92AF9618000A9F32B /* ViewController.swift */,
-				EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */,
-				EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */,
-				99056FDB2AF9618000A9F32B /* Main.storyboard */,
 				99056FE12AF9618200A9F32B /* Assets.xcassets */,
 				99056FE32AF9618200A9F32B /* LaunchScreen.storyboard */,
 				99056FE62AF9618200A9F32B /* Info.plist */,
-				EEDEB6E02B0EC8B300BADF67 /* ConjugationTableViewCell.swift */,
-				EEDEB6E12B0EC8B300BADF67 /* ConjugationTableViewCell.xib */,
 			);
 			path = GoFrench;
 			sourceTree = "<group>";
@@ -162,10 +209,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB1B9792B112E4F00D45768 /* enumSegue.swift in Sources */,
+				8EB1B9812B11315D00D45768 /* Data.swift in Sources */,
 				99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */,
 				99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */,
+				8EB1B9842B114F1F00D45768 /* enumConjugationType.swift in Sources */,
 				EE9AC9402B029A8800D342D6 /* SecondViewController.swift in Sources */,
+				8EB1B9852B114F1F00D45768 /* enumConjugationTense.swift in Sources */,
 				EEDEB6E22B0EC8B300BADF67 /* ConjugationTableViewCell.swift in Sources */,
+				8EB1B97F2B11310700D45768 /* Conjugation.swift in Sources */,
 				EE7CB5C42B0EB8340049F232 /* ThirdViewController.swift in Sources */,
 				990D137C2B0ECE9900CF6B20 /* ConjugationService.swift in Sources */,
 				99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */,
