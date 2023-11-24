@@ -79,11 +79,11 @@
 				99056FD72AF9618000A9F32B /* SceneDelegate.swift */,
 				99056FD92AF9618000A9F32B /* ViewController.swift */,
 				EE9AC93F2B029A8800D342D6 /* SecondViewController.swift */,
+				EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */,
 				99056FDB2AF9618000A9F32B /* Main.storyboard */,
 				99056FE12AF9618200A9F32B /* Assets.xcassets */,
 				99056FE32AF9618200A9F32B /* LaunchScreen.storyboard */,
 				99056FE62AF9618200A9F32B /* Info.plist */,
-				EE7CB5C32B0EB8340049F232 /* ThirdViewController.swift */,
 				EEDEB6E02B0EC8B300BADF67 /* ConjugationTableViewCell.swift */,
 				EEDEB6E12B0EC8B300BADF67 /* ConjugationTableViewCell.xib */,
 			);

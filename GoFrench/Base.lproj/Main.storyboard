@@ -117,6 +117,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="btnConjugate:" destination="1dN-wN-exK" eventType="touchUpInside" id="Uze-9P-rCu"/>
                                     <segue destination="zVX-5M-rgb" kind="show" id="ePZ-Q5-9Hr"/>
                                 </connections>
                             </button>
@@ -129,6 +130,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="nxQ-yL-SDO"/>
+                    <connections>
+                        <outlet property="searchBar" destination="plJ-kI-VbF" id="qRC-Op-ln8"/>
+                        <outlet property="txtDescription" destination="Owx-RQ-QIp" id="Qv7-WD-rcX"/>
+                        <outlet property="txtWord" destination="DZ5-pg-s8S" id="BUJ-wf-N6h"/>
+                        <outlet property="txtWordVerbType" destination="MYU-1O-hl3" id="qw9-nF-UnU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZl-qd-uBJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,6 +162,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnPopTypeValueChanged:" destination="zVX-5M-rgb" eventType="valueChanged" id="hO7-SJ-yuE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1R-nv-Ffy">
                                 <rect key="frame" x="237" y="122" width="127" height="30"/>
@@ -169,6 +179,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnPopTenseValueChanged:" destination="zVX-5M-rgb" eventType="valueChanged" id="TUr-N4-YIi"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-dr-ph1">
                                 <rect key="frame" x="16" y="167" width="361" height="537"/>
@@ -191,6 +204,11 @@
                         <color key="tintColor" red="0.30574990400000002" green="0.79407907389999999" blue="0.88150376080000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="4cg-tZ-Gli"/>
+                    <connections>
+                        <outlet property="btnPopTense" destination="l1R-nv-Ffy" id="cNx-cQ-Bu1"/>
+                        <outlet property="btnPopType" destination="08G-vU-dib" id="M2i-C0-MGo"/>
+                        <outlet property="tableView" destination="3kE-dr-ph1" id="EhX-XK-91D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtz-bg-ofx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
