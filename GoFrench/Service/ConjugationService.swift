@@ -7,32 +7,16 @@
 
 import Foundation
 
-// Structure to represent a specific conjugation
-struct ConjugationObject {
-    let type: String
-    let tense: String
-    let conjugatedForm: String
-    let subject: String
-}
 
-// Structure to represent all data including word information and conjugations
-struct ConjugationData {
-    let word: String
-    let fullDescription: String
-    let verbGroup: String
-    let verbType: String
-    let conjugateWith: String
-    let conjugateRule: String
-    let conjugations: [ConjugationObject]
-}
 
-class ConjugationService {
+
+class ConjugationProvider {
     
-    let conjugationApiUrl = URL(string: "https://mocki.io/v1/2e7196ac-1909-4883-bb17-ed996ea1c487")!
+   static let baseUrl = URL(string: "https://mocki.io/v1/2e7196ac-1909-4883-bb17-ed996ea1c487")!
     
     // Function to fetch conjugation data from the API
-    func fetchConjugationData(completion: @escaping (ConjugationData?) -> Void) {
-        URLSession.shared.dataTask(with: conjugationApiUrl) { data, response, error in
+    static func fetchConjugationData(for word: String, completion: @escaping (Data?) -> Void) {
+        URLSession.shared.dataTask(with: baseUrl) { data, response, error in
             guard let data = data, error == nil else {
                 print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
                 completion(nil)
@@ -52,7 +36,7 @@ class ConjugationService {
     }
     
     // Function to parse the given JSON and return ConjugationData
-    func parseConjugationResponse(from jsonResponse: [String: Any]) -> ConjugationData? {
+   static func parseConjugationResponse(from jsonResponse: [String: Any]) -> Data? {
         guard let data = jsonResponse["data"] as? [String: Any],
               let word = data["word"] as? String,
               let fullDescription = data["fullDescription"] as? String,
@@ -63,12 +47,12 @@ class ConjugationService {
             return nil
         }
 
-        var conjugations = [ConjugationObject]()
+        var conjugations = [Conjugation]()
 
         // Handle "infinitive" and "participe"
         if let infinitive = data["infinitive"] as? [String: String] {
             for (tense, verbForm) in infinitive {
-                let conjugation = ConjugationObject(
+                let conjugation = Conjugation(
                     type: "Infinitive",
                     tense: tense,
                     conjugatedForm: verbForm,
@@ -79,7 +63,7 @@ class ConjugationService {
         }
         if let participe = data["participe"] as? [String: String] {
             for (tense, verbForm) in participe {
-                let conjugation = ConjugationObject(
+                let conjugation = Conjugation(
                     type: "Participe",
                     tense: tense,
                     conjugatedForm: verbForm,
@@ -98,7 +82,7 @@ class ConjugationService {
                     if let conjugationsForTense = tenseValue as? [String: String] {
                         for (fullSubjectKey, conjugatedForm) in conjugationsForTense {
                             let subject = extractSubject(from: fullSubjectKey)
-                            let conjugation = ConjugationObject(
+                            let conjugation = Conjugation(
                                 type: type.capitalized,
                                 tense: tenseKey,
                                 conjugatedForm: conjugatedForm,
@@ -111,7 +95,7 @@ class ConjugationService {
             }
         }
 
-        return ConjugationData(
+        return Data(
             word: word,
             fullDescription: fullDescription,
             verbGroup: verbGroup,
@@ -122,7 +106,7 @@ class ConjugationService {
         )
     }
 
-    private func extractSubject(from key: String) -> String {
+    static private func extractSubject(from key: String) -> String {
         let subjects = key.split(whereSeparator: { $0.isUppercase }).map(String.init)
         return subjects.last ?? key
     }

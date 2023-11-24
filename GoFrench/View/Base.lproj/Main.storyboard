@@ -97,7 +97,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="zVX-5M-rgb" kind="show" id="ePZ-Q5-9Hr"/>
+                                    <segue destination="zVX-5M-rgb" kind="show" identifier="toThirdViewController" id="ePZ-Q5-9Hr"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="titleGoFrench" translatesAutoresizingMaskIntoConstraints="NO" id="fyT-G8-cV3">

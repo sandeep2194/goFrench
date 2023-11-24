@@ -7,7 +7,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var txtWordVerbType: UITextField!
     @IBOutlet weak var txtSearchTerm: UITextField!
 
-    var conjugations = [ConjugationObject]()
+    var conjugations = [Conjugation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,7 @@ class SecondViewController: UIViewController {
             return
         }
 
-        let conjugationService = ConjugationService()
-        conjugationService.fetchConjugationData { [weak self] conjugationData in
+        ConjugationProvider.fetchConjugationData(for: txtSearchTerm.text!) { [weak self] conjugationData in
             DispatchQueue.main.async {
                 guard let data = conjugationData else {
                     print("Error fetching conjugation data")
@@ -38,6 +37,22 @@ class SecondViewController: UIViewController {
 
                 // Optionally, reload a table view or other UI elements to display conjugations
             }
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if(identifier == Segue.toThirdViewController){
+            return conjugations.count > 0;
+        }
+        
+        return false;
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == Segue.toThirdViewController){
+            let thirdViewController = segue.destination as! ThirdViewController;
+            thirdViewController.conjugations = conjugations;
         }
     }
 }
