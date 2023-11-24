@@ -10,6 +10,8 @@
 		8EB1B9792B112E4F00D45768 /* enumSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9782B112E4F00D45768 /* enumSegue.swift */; };
 		8EB1B97F2B11310700D45768 /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B97E2B11310700D45768 /* Conjugation.swift */; };
 		8EB1B9812B11315D00D45768 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9802B11315D00D45768 /* Data.swift */; };
+		8EB1B9842B114F1F00D45768 /* enumConjugationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9822B114F1F00D45768 /* enumConjugationType.swift */; };
+		8EB1B9852B114F1F00D45768 /* enumConjugationTense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9832B114F1F00D45768 /* enumConjugationTense.swift */; };
 		99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD52AF9618000A9F32B /* AppDelegate.swift */; };
 		99056FD82AF9618000A9F32B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD72AF9618000A9F32B /* SceneDelegate.swift */; };
 		99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99056FD92AF9618000A9F32B /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		8EB1B9782B112E4F00D45768 /* enumSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumSegue.swift; sourceTree = "<group>"; };
 		8EB1B97E2B11310700D45768 /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
 		8EB1B9802B11315D00D45768 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8EB1B9822B114F1F00D45768 /* enumConjugationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumConjugationType.swift; sourceTree = "<group>"; };
+		8EB1B9832B114F1F00D45768 /* enumConjugationTense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumConjugationTense.swift; sourceTree = "<group>"; };
 		99056FD22AF9618000A9F32B /* GoFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99056FD52AF9618000A9F32B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99056FD72AF9618000A9F32B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		8EB1B97C2B1130CD00D45768 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8EB1B9832B114F1F00D45768 /* enumConjugationTense.swift */,
+				8EB1B9822B114F1F00D45768 /* enumConjugationType.swift */,
 				8EB1B9782B112E4F00D45768 /* enumSegue.swift */,
 			);
 			path = Source;
@@ -207,7 +213,9 @@
 				8EB1B9812B11315D00D45768 /* Data.swift in Sources */,
 				99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */,
 				99056FD62AF9618000A9F32B /* AppDelegate.swift in Sources */,
+				8EB1B9842B114F1F00D45768 /* enumConjugationType.swift in Sources */,
 				EE9AC9402B029A8800D342D6 /* SecondViewController.swift in Sources */,
+				8EB1B9852B114F1F00D45768 /* enumConjugationTense.swift in Sources */,
 				EEDEB6E22B0EC8B300BADF67 /* ConjugationTableViewCell.swift in Sources */,
 				8EB1B97F2B11310700D45768 /* Conjugation.swift in Sources */,
 				EE7CB5C42B0EB8340049F232 /* ThirdViewController.swift in Sources */,
