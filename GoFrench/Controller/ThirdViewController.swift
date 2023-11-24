@@ -30,8 +30,8 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.register(UINib(nibName: "ConjugationTableViewCell", bundle: nil), forCellReuseIdentifier: "conjugationTableViewCell")
 
-        setPopUpButtonType()
         btnPopTense.isEnabled = false
+        setPopUpButtonType()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conjugations.count;

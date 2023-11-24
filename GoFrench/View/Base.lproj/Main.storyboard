@@ -170,7 +170,9 @@
                                         <command title="Item 2" id="d7P-Va-0YK"/>
                                     </children>
                                 </menu>
-                                <state key="normal" title="Type"/>
+                                <state key="normal" title="Type">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="btnPopTypeValueChanged:" destination="zVX-5M-rgb" eventType="valueChanged" id="hO7-SJ-yuE"/>
                                 </connections>
@@ -184,6 +186,7 @@
                                 <rect key="frame" x="250" y="122" width="127" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.30574990400000002" green="0.79407907389999999" blue="0.88150376080000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <menu key="menu" id="OIh-zI-1oX">
                                     <children>
                                         <command title="Item 1" id="G3c-hr-SlZ"/>
@@ -193,6 +196,7 @@
                                 <state key="normal" title="Tense">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="disabled" title="Tense"/>
                                 <connections>
                                     <action selector="btnPopTenseValueChanged:" destination="zVX-5M-rgb" eventType="valueChanged" id="TUr-N4-YIi"/>
                                 </connections>
