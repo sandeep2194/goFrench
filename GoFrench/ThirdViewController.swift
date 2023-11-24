@@ -22,7 +22,7 @@ class ThirdViewController: UIViewController {
     }
     
     @IBAction func btnPopTypeValueChanged(_ sender: Any) {
-        //todo
+        //todo test 01
     }
     
     @IBAction func btnPopTenseValueChanged(_ sender: Any) {
