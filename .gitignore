@@ -3,3 +3,4 @@
 *.xcuserstate
 *.plist
 GoFrench.xcodeproj/*
+GoFrench/.DS_Store
