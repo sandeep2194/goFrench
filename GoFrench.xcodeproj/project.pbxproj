@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E7499262B211E73000F5AF5 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7499252B211E73000F5AF5 /* Toast.swift */; };
 		8EB1B9792B112E4F00D45768 /* enumSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9782B112E4F00D45768 /* enumSegue.swift */; };
 		8EB1B97F2B11310700D45768 /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B97E2B11310700D45768 /* Conjugation.swift */; };
 		8EB1B9812B11315D00D45768 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB1B9802B11315D00D45768 /* Data.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E7499252B211E73000F5AF5 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		8EB1B9782B112E4F00D45768 /* enumSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumSegue.swift; sourceTree = "<group>"; };
 		8EB1B97E2B11310700D45768 /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
 		8EB1B9802B11315D00D45768 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		99056FD42AF9618000A9F32B /* GoFrench */ = {
 			isa = PBXGroup;
 			children = (
+				8E7499252B211E73000F5AF5 /* Toast.swift */,
 				8EB1B97D2B1130DC00D45768 /* Model */,
 				8EB1B97C2B1130CD00D45768 /* Source */,
 				8EB1B97B2B1130A200D45768 /* View */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E7499262B211E73000F5AF5 /* Toast.swift in Sources */,
 				8EB1B9792B112E4F00D45768 /* enumSegue.swift in Sources */,
 				8EB1B9812B11315D00D45768 /* Data.swift in Sources */,
 				99056FDA2AF9618000A9F32B /* ViewController.swift in Sources */,

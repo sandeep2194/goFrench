@@ -23,6 +23,7 @@ class SecondViewController: UIViewController {
         ConjugationProvider.fetchConjugationData(for: txtSearchTerm.text!) { [weak self] conjugationData in
             DispatchQueue.main.async {
                 guard let data = conjugationData else {
+                    self?.showError();
                     print("Error fetching conjugation data")
                     return
                 }
@@ -52,6 +53,21 @@ class SecondViewController: UIViewController {
         if(segue.identifier == Segue.toThirdViewController){
             let thirdViewController = segue.destination as! ThirdViewController;
             thirdViewController.conjugations = conjugations;
+        }
+    }
+     func clear(){
+        txtWord.text="";
+        txtDescription.text="";
+        txtWordVerbType.text="";
+    }
+    
+    func showError(){
+        Toast.ok(view: self, title: "Ooops!", message: "Word not found. Try another one")
+    }
+    
+    @IBAction func txtSearchTermEditingChanged(_ sender: Any) {
+        if(!(txtSearchTerm.hasText)){
+            clear();
         }
     }
 }
