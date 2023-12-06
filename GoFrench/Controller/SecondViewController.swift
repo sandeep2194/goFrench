@@ -35,7 +35,6 @@ class SecondViewController: UIViewController {
                 // Save conjugations
                 self?.conjugations = data.conjugations
 
-                // Optionally, reload a table view or other UI elements to display conjugations
             }
         }
     }

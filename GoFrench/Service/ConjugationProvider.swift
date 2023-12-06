@@ -8,25 +8,64 @@
 import Foundation
 
 
-
-
 class ConjugationProvider {
     
-   static let baseUrl = URL(string: "https://mocki.io/v1/2e7196ac-1909-4883-bb17-ed996ea1c487")!
-    
+    static let baseUrl = "https://french-verbs-fall-2023-app-ramym.ondigitalocean.app";
+    static let token:String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNhbmRlZXBjbjk5OEBnbWFpbC5jb20iLCJ1aWQiOiI2NTcwZDYyZDAyYzI4MDgzNDUzYzkwYTIiLCJleHAiOjE3MDQ0ODU3MDV9.rI9Qg_c1kf4_J5KyeD67VcIeHi-l1Ef16NP30RX4d_k"
     // Function to fetch conjugation data from the API
+
     static func fetchConjugationData(for word: String, completion: @escaping (Data?) -> Void) {
-        URLSession.shared.dataTask(with: baseUrl) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
+        guard let verbsURL = URL(string: "\(baseUrl)/v0/verbs") else {
+            print("Invalid URL")
+            completion(nil)
+            return
+        }
+
+        var request = URLRequest(url: verbsURL)
+        request.httpMethod = "POST"
+        
+        // Set Content-Type to application/json
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Add token to the request header
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+
+        // Prepare the body data
+        let body: [String: String] = ["verb": word]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
+            request.httpBody = jsonData
+            print("Request URL: \(verbsURL)")
+            print("Request Headers: \(request.allHTTPHeaderFields ?? [:])")
+            print("Request Body: \(String(data: jsonData, encoding: .utf8) ?? "nil")")
+        } catch {
+            print("Error creating the request body: \(error.localizedDescription)")
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            print("Response: \(response.debugDescription)")
+
+            if let error = error {
+                print("Error fetching data: \(error.localizedDescription)")
                 completion(nil)
                 return
             }
-            
+
+            guard let data = data else {
+                print("No data received")
+                completion(nil)
+                return
+            }
+
             do {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print("JSON Response: \(jsonResponse)")
                     let conjugationData = self.parseConjugationResponse(from: jsonResponse)
                     completion(conjugationData)
+                } else {
+                    print("Invalid JSON format")
+                    completion(nil)
                 }
             } catch {
                 print("Error parsing JSON: \(error.localizedDescription)")
@@ -34,10 +73,10 @@ class ConjugationProvider {
             }
         }.resume()
     }
-    
-    // Function to parse the given JSON and return ConjugationData
+
+    // Function to parse the given JSON and return Data
    static func parseConjugationResponse(from jsonResponse: [String: Any]) -> Data? {
-        guard let data = jsonResponse["data"] as? [String: Any],
+        guard let data = jsonResponse["verb"] as? [String: Any],
               let word = data["word"] as? String,
               let fullDescription = data["fullDescription"] as? String,
               let verbGroup = data["wordVerbGroup"] as? String,
